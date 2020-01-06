@@ -1,11 +1,9 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {SpaView} from './pages';
 
 function App() {
   return (
-    <div className="app-body">
-    </div>
+    <SpaView />
   );
 }
 

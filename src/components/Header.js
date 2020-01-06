@@ -4,7 +4,7 @@ import Logo from '../logo.svg';
 import Colors from 'variables/colors';
 
 const Container = styled.div`
-  width: 100%;
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,7 +44,6 @@ export const Header = ({ toggled=false }) => {
           Seu veículo nas mão certas
         </Slogan>
       </SloganWrapper>
-      
     </Container>
   )
 }

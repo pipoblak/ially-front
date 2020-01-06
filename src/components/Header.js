@@ -5,15 +5,23 @@ import Colors from 'variables/colors';
 
 const Container = styled.div`
   width: 100%;
-  height: ${ p => p.toggled ? 70: 92}px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding: 16px;
+  position: relative;
 `;
 
 const ImgLogo = styled.img`
-  height: 100%;
+  height: ${ p => p.toggled ? 70: 92}px;
+  transition: all .8s;
+`;
+
+const SloganWrapper = styled.div`
+  transition: all .5s;
+  ${p => p.toggled && 'opacity: 0;'}
+  display: flex;
 `;
 
 const Slogan = styled.span`
@@ -21,16 +29,22 @@ const Slogan = styled.span`
   font-weight: 500;
   font-size: 24px;
   margin-top: 8px;
-  {p => p.hidden && 'display: none;'}
+  transition: all .5s;
+  transition-delay: .25s;
+  transition-timing-function: cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  ${p => p.toggled && 'visibility: collapse; font-size: 0px; transition-delay: .0s;'}
 `;
 
 export const Header = ({ toggled=false }) => {
   return(
     <Container toggled={toggled}>
-      <ImgLogo src={Logo} alt="Logo"/>
-      <Slogan hidden={toggled}>
-        Seu veículo nas mão certas
-      </Slogan>
+      <ImgLogo src={Logo} alt="Logo" toggled={toggled}/>
+      <SloganWrapper toggled={toggled}>
+        <Slogan toggled={toggled}>
+          Seu veículo nas mão certas
+        </Slogan>
+      </SloganWrapper>
+      
     </Container>
   )
 }

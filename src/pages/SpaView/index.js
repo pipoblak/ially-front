@@ -17,7 +17,7 @@ const ContentArea = styled.div`
   top: 50%;
   width: 100%;
   flex: 1;
-  height: 200px;
+  height: 368px;
   transition: all .35s;
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
   ${p => p.toggled && 'top: 0;'}
@@ -55,8 +55,8 @@ export default () => {
     <Wrapper toggled={toggled}>
       <ContentArea toggled={toggled}>
         <Container toggled={toggled}>
-          <Header toggled={toggled} />
-          <SearchBox />
+          <Header toggled={toggled}/>
+          <SearchBox toggled={toggled}/>
           <ButtonWrapper>
             <DefaultButton alt="vamos lá" onClick={()=>setToggled(!toggled)}>
               Vamos lá

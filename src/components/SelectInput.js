@@ -28,8 +28,18 @@ export const SelectInput = ({label, placeholder, options,  ...props}) => {
         'box-shadow': 'none'
       }
     }),
-    input: (provided, state) => ({
-      
+    valueContainer: (provided, state) => ({
+      ...provided,
+      padding: 0
+    }),
+    placeholder: (provided, state) => ({
+      ...provided,
+      margin: 0,
+      fontSize: 18
+    }),
+    indicatorSeparator: (provided, state) => ({
+      ...provided,
+      opacity: 0
     }),
   }
   return(

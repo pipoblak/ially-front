@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { SelectInput } from './SelectInput';
+import { CepInput } from './CepInput';
 
 const Wrapper = styled.div`
   display: flex;
@@ -12,11 +13,13 @@ const Wrapper = styled.div`
 
 const Container = styled.div`
   width: 100%;
-  max-width: 1050px;
-  border: 1px solid #eee;
+  max-width: ${p=> !p.toggled ? '900px':'100%'};
+  border:  ${p=> !p.toggled ? '1px solid #eee' : 'none'};
+  border-bottom:  ${p=> p.toggled ? '1px solid #eee' : 'none'};
   border-radius: 6px;
   background: rgba(255,255,255,1);
-  padding: 32px;
+  padding: ${p=> !p.toggled ? '32px' : '0 16px'};
+  padding-bottom:  ${p=> p.toggled ? '16px' : '0px  '};
   display: flex;
   flex-direction: row;
 `;
@@ -24,7 +27,7 @@ const Container = styled.div`
 export const SearchBox = ({ toggled = false }) => {
   return(
     <Wrapper>
-      <Container>
+      <Container toggled={toggled}>
         <SelectInput
           label="Eu preciso de um(a)"
           options={[]}
@@ -35,10 +38,9 @@ export const SearchBox = ({ toggled = false }) => {
           options={[]}
           placeholder="Escolha o serviço"
         />
-        <SelectInput
-          label="Eu preciso de um(a)"
-          options={[]}
-          placeholder="Escolha um profissional"
+        <CepInput
+          label="Perto de"
+          placeholder="Busque por Bairro ou CEP"
         />
       </Container>
     </Wrapper>

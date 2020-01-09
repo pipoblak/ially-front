@@ -14,7 +14,7 @@ const Container = styled.div`
 `;
 
 const ImgLogo = styled.img`
-  height: ${ p => p.toggled ? 70: 92}px;
+  height: ${ p => p.toggled ? 50: 92}px;
   transition: all .8s;
 `;
 

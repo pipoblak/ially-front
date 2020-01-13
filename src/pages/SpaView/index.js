@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Header, SearchBox, DefaultButton } from 'components';
 import BackgroundImage from '../../background.svg';
+import { BounceLoader } from "react-spinners";
+import Link from 'react-router-dom/Link';
+import { AnimatedRoute } from 'react-router-transition';
+import colors from 'variables/colors';
 
 const Wrapper = styled.div`
   position: relative;
@@ -55,9 +59,12 @@ const ListWrapper = styled.div`
   background: #F4F4F4;
   height: 100%;
   flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 32px 0;
 `;
 
-export default () => {
+export default ({ history }) => {
   const [toggled, setToggled] = useState(false);
   return(
     <Wrapper toggled={toggled}>
@@ -67,7 +74,7 @@ export default () => {
           <SearchBox toggled={toggled}/>
           {!toggled && (
             <ButtonWrapper>
-              <DefaultButton alt="vamos lá" onClick={()=>setToggled(!toggled)}>
+              <DefaultButton alt="vamos lá" onClick={()=>setToggled(!toggled) }>
                 Vamos lá
               </DefaultButton>
             </ButtonWrapper>
@@ -75,6 +82,21 @@ export default () => {
         </Container>
         {toggled && (
           <ListWrapper>
+            <AnimatedRoute
+              path="/sidebar"
+              component={() => <BounceLoader
+              size={60}
+              color={colors.primary}
+              loading={true}
+            />}
+              atEnter={{ offset: -100 }}
+              atLeave={{ offset: -100 }}
+              atActive={{ offset: 0 }}
+              mapStyles={(styles) => ({
+                transform: `translateX(${styles.offset}%)`,
+              })}
+            />
+            
           </ListWrapper>
         )}
       </ContentArea>

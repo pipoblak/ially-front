@@ -13,7 +13,7 @@ const Wrapper = styled.div`
 const Label = styled.label`
   font-size: 16px;
   color: #9B9B9B;
-  margin: auto;
+  
   margin-right: 16px;
 `;
 
@@ -22,6 +22,7 @@ const Input = styled.input`
   border: none;
   color: rgba(0, 0, 0, 0.42);
   margin: auto;
+  margin-left: 0;
   margin-right: 0;
   width: 210px;
   height: 32px;

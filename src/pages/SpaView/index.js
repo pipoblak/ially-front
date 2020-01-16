@@ -1,73 +1,16 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import { Header, SearchBox, DefaultButton } from 'components';
-import BackgroundImage from '../../background.svg';
-import { BounceLoader } from "react-spinners";
-import { AnimatedRoute } from 'react-router-transition';
-import colors from 'variables/colors';
+import React, { useState, useEffect } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { Header, SearchBox, DefaultButton } from 'components';
+import BackgroundImage from '../../background.svg';
 import { Creators } from 'store/ducks/SpaView';
+import List from './components/List';
+import { Wrapper, ContentArea, Container, ButtonWrapper, Background } from './styles';
 
-const Wrapper = styled.div`
-  position: relative;
-  width: 100%;
-  flex: 1;
-  max-height: 100vh;
-  max-width: 100vw;
-`;
-
-const ContentArea = styled.div`
-  position: relative;
-  z-index: 1;
-  top: 50%;
-  width: 100%;
-  flex: 1;
-  height: ${p=> p.toggled ? '100%' : '368px'};
-  transition: all .35s;
-  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
-  ${p => p.toggled && 'top: 0;'}
-`;
-
-const Container = styled.div`
-  display: flex;
-  width: 100%;
-  flex: 1;
-  flex-direction: column;
-  position: relative;
-  top: -50%;
-  transition: all .35s;
-  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
-  ${p => p.toggled && 'top: 0;'}
-`;
-
-const ButtonWrapper = styled.div`
-  margin-top: 16px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const Background = styled.img`
-  width: 100%;
-  position: absolute;
-  bottom: ${p=> p.toggled ? '-100%': 0};
-  transition: all .5s;
-  z-index: 0;
-`;
-
-const ListWrapper = styled.div`
-  width: 100%;
-  background: #F4F4F4;
-  height: 100%;
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  padding: 32px 0;
-`;
-
-const SpaView = ({ history, state:{ toggled, loading}, setToggled }) => {
-  
+const SpaView = ({ history, location: { pathname } , state:{ toggled, loading}, setToggled, ...rest }) => {
+  useEffect(()=>{
+    pathname==='/lista' && setToggled(true)
+  },[pathname, setToggled]);
   return(
     <Wrapper toggled={toggled}>
       <ContentArea toggled={toggled}>
@@ -83,23 +26,7 @@ const SpaView = ({ history, state:{ toggled, loading}, setToggled }) => {
           )}
         </Container>
         {toggled && (
-          <ListWrapper>
-            <AnimatedRoute
-              path="/sidebar"
-              component={() => <BounceLoader
-              size={60}
-              color={colors.primary}
-              loading={loading}
-            />}
-              atEnter={{ offset: -100 }}
-              atLeave={{ offset: -100 }}
-              atActive={{ offset: 0 }}
-              mapStyles={(styles) => ({
-                transform: `translateX(${styles.offset}%)`,
-              })}
-            />
-            
-          </ListWrapper>
+          <List />
         )}
       </ContentArea>
       <Background src={BackgroundImage} toggled={toggled}/>

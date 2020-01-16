@@ -18,7 +18,7 @@ const Container = styled.div`
   border-bottom:  ${p=> p.toggled ? '1px solid #eee' : 'none'};
   border-radius: 6px;
   background: rgba(255,255,255,1);
-  padding: ${p=> !p.toggled ? '32px' : '0 16px'};
+  padding: ${p=> !p.toggled ? '32px' : '0 32px'};
   padding-bottom:  ${p=> p.toggled ? '16px' : '0px  '};
   display: flex;
   flex-direction: row;

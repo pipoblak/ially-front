@@ -18,6 +18,7 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={SpaView}/>
+          <Route exact path="/lista" toggled={true} component={SpaView}/>
           <Route path="*">
             <NotFound />
           </Route>

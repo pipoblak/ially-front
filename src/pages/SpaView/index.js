@@ -3,9 +3,11 @@ import styled from 'styled-components';
 import { Header, SearchBox, DefaultButton } from 'components';
 import BackgroundImage from '../../background.svg';
 import { BounceLoader } from "react-spinners";
-import Link from 'react-router-dom/Link';
 import { AnimatedRoute } from 'react-router-transition';
 import colors from 'variables/colors';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { Creators } from 'store/ducks/SpaView';
 
 const Wrapper = styled.div`
   position: relative;
@@ -64,8 +66,8 @@ const ListWrapper = styled.div`
   padding: 32px 0;
 `;
 
-export default ({ history }) => {
-  const [toggled, setToggled] = useState(false);
+const SpaView = ({ history, state:{ toggled, loading}, setToggled }) => {
+  
   return(
     <Wrapper toggled={toggled}>
       <ContentArea toggled={toggled}>
@@ -74,7 +76,7 @@ export default ({ history }) => {
           <SearchBox toggled={toggled}/>
           {!toggled && (
             <ButtonWrapper>
-              <DefaultButton alt="vamos lá" onClick={()=>setToggled(!toggled) }>
+              <DefaultButton alt="vamos lá" onClick={()=> setToggled(true) }>
                 Vamos lá
               </DefaultButton>
             </ButtonWrapper>
@@ -87,7 +89,7 @@ export default ({ history }) => {
               component={() => <BounceLoader
               size={60}
               color={colors.primary}
-              loading={true}
+              loading={loading}
             />}
               atEnter={{ offset: -100 }}
               atLeave={{ offset: -100 }}
@@ -104,3 +106,12 @@ export default ({ history }) => {
     </Wrapper>
   );
 }
+
+const mapStateToProps = state => ({
+  state: state.SpaView
+});
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(Creators, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(SpaView);

@@ -6,6 +6,8 @@ export const ListWrapper = styled.div`
   height: 100%;
   flex: 1;
   display: flex;
-  justify-content: center;
+  align-items: center;
   padding: 32px 0;
+  flex-direction: column;
+  overflow: auto;
 `;

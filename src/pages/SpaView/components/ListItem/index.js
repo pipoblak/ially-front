@@ -1,7 +1,7 @@
 import React from 'react';
 import { BounceLoader } from "react-spinners";
 import { Avatar } from 'components';
-import { Wrapper, TextWrapper, Title, SubTitle, Value, Divisor } from './styles';
+import { Wrapper, TextWrapper, Title, SubTitle, Value, Divisor, Link } from './styles';
 import colors from 'variables/colors';
 import AvatarImage from 'avatar.png';
 
@@ -21,7 +21,7 @@ const ListItem = ({ loading }) =>{
       </TextWrapper>
       <Divisor />
       <TextWrapper>
-        <Title>VER MAIS INFORMAÇÕES</Title>
+        <Link href="#">VER MAIS INFORMAÇÕES</Link>
       </TextWrapper>
     </Wrapper>
   );  

@@ -2,12 +2,13 @@ import styled from 'styled-components';
 import colors from 'variables/colors';
 
 export const Wrapper = styled.div`
-  width: 100%;
+  width: calc(100% - 64px);
   height: 138px;
   background: white;
   display: flex;
   align-items: center;
   padding: 0 32px;
+  margin-bottom: 8px;
 `;
 
 export const TextWrapper = styled.div`
@@ -62,4 +63,15 @@ export const Value = styled.h2`
   margin-left: 16px;
 `;
 
+export const Link = styled.a`
+  margin: 0;
+  padding: 0;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+  color: #8C8C8C;
+  text-align: center;
+  text-decoration: none;
+`;
 

@@ -14,6 +14,16 @@ const List = ({ loading }) =>{
         loading={loading}
       />
       <ListItem />
+      <ListItem />
+      <ListItem />
+      <ListItem />
+      <ListItem />
+      <ListItem />
+      <ListItem />
+      <ListItem />
+      <ListItem />
+      <ListItem />
+      <ListItem />
     </ListWrapper>
   );  
 };

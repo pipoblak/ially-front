@@ -15,7 +15,9 @@ export const ContentArea = styled.div`
   z-index: 1;
   top: 50%;
   width: 100%;
+  display: flex;
   flex: 1;
+  flex-direction: column;
   height: ${p=> p.toggled ? '100%' : '368px'};
   transition: all .35s;
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
@@ -25,7 +27,6 @@ export const ContentArea = styled.div`
 export const Container = styled.div`
   display: flex;
   width: 100%;
-  flex: 1;
   flex-direction: column;
   position: relative;
   top: -50%;

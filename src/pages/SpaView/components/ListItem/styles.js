@@ -9,6 +9,9 @@ export const Wrapper = styled.div`
   align-items: center;
   padding: 0 32px;
   margin-bottom: 8px;
+  &:hover{
+    cursor: pointer;
+  }
 `;
 
 export const TextWrapper = styled.div`
@@ -52,7 +55,7 @@ export const SubTitle = styled.h4`
   justify-content: center;
 `;
 
-export const Value = styled.h2`
+export const Value = styled.span`
   margin: 0;
   padding: 0;
   font-style: normal;

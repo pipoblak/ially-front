@@ -19,7 +19,7 @@ export const ContentArea = styled.div`
   flex: 1;
   flex-direction: column;
   height: ${p=> p.toggled ? '100%' : '368px'};
-  transition: all .35s;
+  transition: all .25s;
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
   ${p => p.toggled && 'top: 0;'}
 `;
@@ -30,7 +30,7 @@ export const Container = styled.div`
   flex-direction: column;
   position: relative;
   top: -50%;
-  transition: all .35s;
+  transition: all .25s;
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
   ${p => p.toggled && 'top: 0;'}
 `;
@@ -46,6 +46,6 @@ export const Background = styled.img`
   width: 100%;
   position: absolute;
   bottom: ${p=> p.toggled ? '-100%': 0};
-  transition: all .5s;
+  transition: all .35s;
   z-index: 0;
 `;

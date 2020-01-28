@@ -19,7 +19,7 @@ const Container = styled.div`
   border-radius: 6px;
   background: rgba(255,255,255,1);
   padding: ${p=> !p.toggled ? '32px' : '0 32px'};
-  padding-bottom:  ${p=> p.toggled ? '16px' : '0px  '};
+  padding-bottom:  ${p=> p.toggled ? '16px' : '16px  '};
   display: flex;
   flex-direction: row;
 `;

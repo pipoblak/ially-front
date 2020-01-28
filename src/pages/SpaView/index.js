@@ -7,10 +7,10 @@ import { Creators } from 'store/ducks/SpaView';
 import List from './components/List';
 import { Wrapper, ContentArea, Container, ButtonWrapper, Background } from './styles';
 
-const SpaView = ({ history, location: { pathname } , state:{ toggled, loading}, setToggled, ...rest }) => {
+const SpaView = ({ history, toggled: routeToggled, state:{ toggled, loading}, setToggled, ...rest }) => {
   useEffect(()=>{
-    pathname==='/lista' && setToggled(true)
-  },[pathname, setToggled]);
+    setToggled(routeToggled)
+  },[routeToggled, setToggled]);
   return(
     <Wrapper toggled={toggled}>
       <ContentArea toggled={toggled}>
@@ -19,7 +19,7 @@ const SpaView = ({ history, location: { pathname } , state:{ toggled, loading}, 
           <SearchBox toggled={toggled}/>
           {!toggled && (
             <ButtonWrapper>
-              <DefaultButton alt="vamos lá" onClick={()=> setToggled(true) }>
+              <DefaultButton alt="vamos lá" onClick={()=> history.push('lista') }>
                 Vamos lá
               </DefaultButton>
             </ButtonWrapper>

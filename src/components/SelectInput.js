@@ -20,12 +20,12 @@ export const SelectInput = ({label, placeholder, options,  ...props}) => {
     control: (provided, state) => ({
       ...provided,
       border: 'none',
-      'border-color': 'red',
+      'borderColor': 'red',
       width: '90%',
-      'box-shadow': 'none',
+      'boxShadow': 'none',
       '&:hover': {
-        'border-color': '#fff',
-        'box-shadow': 'none'
+        'borderColor': '#fff',
+        'boxShadow': 'none'
       }
     }),
     valueContainer: (provided, state) => ({

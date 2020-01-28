@@ -15,7 +15,7 @@ const Container = styled.div`
 
 const ImgLogo = styled.img`
   height: ${ p => p.toggled ? 50: 92}px;
-  transition: all .8s;
+  transition: all .35s;
 `;
 
 const SloganWrapper = styled.div`
@@ -29,7 +29,7 @@ const Slogan = styled.span`
   font-weight: 500;
   font-size: 24px;
   margin-top: 8px;
-  transition: all .5s;
+  transition: all .25s;
   transition-delay: .25s;
   transition-timing-function: cubic-bezier(0.18, 0.89, 0.32, 1.28);
   ${p => p.toggled && 'visibility: collapse; font-size: 0px; transition-delay: .0s;'}

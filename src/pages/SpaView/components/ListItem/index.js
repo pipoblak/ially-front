@@ -7,7 +7,7 @@ import AvatarImage from 'avatar.png';
 
 const ListItem = ({ loading }) =>{
   return(
-    <Wrapper>
+    <Wrapper onClick={()=>{}}>
       <Avatar source={AvatarImage} size={72}/>
       <TextWrapper>
         <Title>Mônaco Serviços Automotivos</Title>

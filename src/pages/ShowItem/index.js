@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Header, DefaultButton } from 'components';
 import BackgroundImage from '../../background.svg';
 import { Creators } from 'store/ducks/SpaView';
@@ -14,7 +15,10 @@ const SpaView = ({ history, ...rest }) => {
       <ContentArea toggled={true}>
         <Container toggled={true}>
           <Header toggled={true}/>
-          <BackLink href="/lista"> ver outras opções</BackLink>
+          <BackLink href="/lista">
+            <FontAwesomeIcon icon="angle-left" style={{marginRight: 16}} />
+            ver outras opções
+          </BackLink>
           <Item />
         </Container>
       <ItemContent />

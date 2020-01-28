@@ -54,4 +54,8 @@ export const BackLink = styled.a`
   color: #A7A7A7;
   text-decoration: none;
   padding: 0 32px;
+  display: flex;
+  margin: auto;
+  margin-left: 0;
+  align-items: center;
 `;

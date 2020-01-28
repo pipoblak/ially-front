@@ -4,6 +4,8 @@ import { createStore } from 'redux'
 import Router from './router';
 import ReduxStore from 'store/ducks';
 
+import './fontawesome';
+
 const store = createStore(ReduxStore);
 
 function App() {

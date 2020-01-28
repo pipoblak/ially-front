@@ -1,16 +1,13 @@
 import React from 'react';
 import { BounceLoader } from "react-spinners";
-import { useHistory } from 'react-router-dom';
 import { Avatar } from 'components';
 import { Wrapper, TextWrapper, Title, SubTitle, Value, Divisor, Link } from './styles';
 import colors from 'variables/colors';
 import AvatarImage from 'avatar.png';
 
-
 const ListItem = ({ loading }) =>{
-  const history = useHistory();
   return(
-    <Wrapper onClick={()=> history.push('/lista/:uuid')}>
+    <Wrapper onClick={()=>{}}>
       <Avatar source={AvatarImage} size={72}/>
       <TextWrapper>
         <Title>Mônaco Serviços Automotivos</Title>

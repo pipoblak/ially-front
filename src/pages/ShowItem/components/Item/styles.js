@@ -9,24 +9,17 @@ export const Wrapper = styled.div`
   align-items: center;
   padding: 0 32px;
   margin-bottom: 8px;
-  &:hover{
-    cursor: pointer;
-  }
 `;
 
 export const TextWrapper = styled.div`
-  flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
   padding: 0px 16px;
 `;
 
 export const Divisor = styled.div`
-  width: 1px;
-  height: 40px;
-  background: #d1d1d1;
+  flex: 1
 `;
 
 export const Title = styled.h3`
@@ -38,7 +31,7 @@ export const Title = styled.h3`
   line-height: 21px;
   color: #8C8C8C;
   margin-bottom: 8px;
-  text-align: center;
+  text-align: left;
 `;
 
 export const SubTitle = styled.h4`
@@ -52,7 +45,7 @@ export const SubTitle = styled.h4`
   margin-top: 8px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  
 `;
 
 export const Value = styled.span`
@@ -74,7 +67,7 @@ export const Link = styled.a`
   font-size: 18px;
   line-height: 21px;
   color: #8C8C8C;
-  text-align: center;
+  text-align: left;
   text-decoration: none;
 `;
 

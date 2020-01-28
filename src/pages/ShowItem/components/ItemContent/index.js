@@ -2,10 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { BounceLoader } from "react-spinners";
 import { ListWrapper } from './styles';
-import ListItem from '../ListItem';
 import colors from 'variables/colors';
 
-const List = ({ loading }) =>{
+const ItemContent = ({ loading }) =>{
   return(
     <ListWrapper>
       <BounceLoader
@@ -13,17 +12,7 @@ const List = ({ loading }) =>{
         color={colors.primary}
         loading={loading}
       />
-      <ListItem />
-      <ListItem />
-      <ListItem />
-      <ListItem />
-      <ListItem />
-      <ListItem />
-      <ListItem />
-      <ListItem />
-      <ListItem />
-      <ListItem />
-      <ListItem />
+
     </ListWrapper>
   );  
 };
@@ -32,4 +21,4 @@ const mapStateToProps = state => ({
   loading: state.SpaView.loading
 });
 
-export default connect(mapStateToProps)(List);
+export default connect(mapStateToProps)(ItemContent);

@@ -1,35 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Header, SearchBox, DefaultButton } from 'components';
+import { Header, DefaultButton } from 'components';
 import BackgroundImage from '../../background.svg';
 import { Creators } from 'store/ducks/SpaView';
-import List from './components/List';
-import { Wrapper, ContentArea, Container, ButtonWrapper, Background } from './styles';
+import Item from './components/Item';
+import ItemContent from './components/ItemContent';
+import { Wrapper, ContentArea, Container, BackLink, Background } from './styles';
 
-const SpaView = ({ history, toggled: routeToggled, state:{ toggled, loading}, setToggled, ...rest }) => {
-  useEffect(()=>{
-    setToggled(routeToggled)
-  },[routeToggled, setToggled]);
+const SpaView = ({ history, ...rest }) => {
   return(
-    <Wrapper toggled={toggled}>
-      <ContentArea toggled={toggled}>
-        <Container toggled={toggled}>
-          <Header toggled={toggled}/>
-          <SearchBox toggled={toggled}/>
-          {!toggled && (
-            <ButtonWrapper>
-              <DefaultButton alt="vamos lá" onClick={()=> history.push('lista') }>
-                Vamos lá
-              </DefaultButton>
-            </ButtonWrapper>
-          )}
+    <Wrapper toggled={true}>
+      <ContentArea toggled={true}>
+        <Container toggled={true}>
+          <Header toggled={true}/>
+          <BackLink href="/lista"> ver outras opções</BackLink>
+          <Item />
         </Container>
-        {toggled && (
-          <List />
-        )}
+      <ItemContent />
       </ContentArea>
-      <Background src={BackgroundImage} toggled={toggled}/>
+      <Background src={BackgroundImage} toggled={true}/>
     </Wrapper>
   );
 }

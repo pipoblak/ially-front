@@ -49,3 +49,9 @@ export const Background = styled.img`
   transition: all .35s;
   z-index: 0;
 `;
+
+export const BackLink = styled.a`
+  color: #A7A7A7;
+  text-decoration: none;
+  padding: 0 32px;
+`;

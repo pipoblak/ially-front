@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { BounceLoader } from "react-spinners";
-import { ListWrapper } from './styles';
+import { ListWrapper, ListItems, Item, Filler } from './styles';
 import colors from 'variables/colors';
 
 const ItemContent = ({ loading }) =>{
@@ -12,7 +12,20 @@ const ItemContent = ({ loading }) =>{
         color={colors.primary}
         loading={loading}
       />
-
+      <ListItems>
+        <Item />
+        <Item />
+        <Item />
+        <Item />
+        <Item />
+        <Item />
+        <Item />
+        <Item />
+        <Filler />
+        <Filler />
+        <Filler />
+      </ListItems>
+      
     </ListWrapper>
   );  
 };

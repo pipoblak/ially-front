@@ -1,7 +1,7 @@
 export const Types = {
   'SET_STATE': 'components/SearchBox/SET_STATE',
   'GET_PROFESSIONALS': 'components/SearchBox/GET_PROFESSIONALS',
-  'RETURN_PROFESSIONALS': 'components/SearchBox/GET_PROFESSIONALS',
+  'RETURN_PROFESSIONALS': 'components/SearchBox/RETURN_PROFESSIONALS',
 };
 
 export const initialState = {
@@ -17,6 +17,8 @@ export default function reducer(state = initialState, action) {
       return { ...state, toggled: action.payload}
     case Types.GET_PROFESSIONALS:
       return {...state, loading: true};
+    case Types.RETURN_PROFESSIONALS:
+      return {...state, loading: false};
     default:
       return {...state};
   }

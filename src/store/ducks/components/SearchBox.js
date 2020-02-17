@@ -5,7 +5,7 @@ export const Types = {
 };
 
 export const initialState = {
-  loading: false,
+  loading: { professionals: false},
   professionals: [],
   services: [],
   location: {}
@@ -16,9 +16,9 @@ export default function reducer(state = initialState, action) {
     case Types.SET_STATE:
       return { ...state, toggled: action.payload}
     case Types.GET_PROFESSIONALS:
-      return {...state, loading: true};
+      return {...state, loading: { ...state.loading, professionals: true }};
     case Types.RETURN_PROFESSIONALS:
-      return {...state, loading: false};
+      return {...state, loading: { ...state.loading, professionals: false}, professionals: action.payload};
     default:
       return {...state};
   }

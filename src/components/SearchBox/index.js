@@ -7,7 +7,7 @@ import { Wrapper, Container } from './styles';
 import { Creators } from 'store/ducks/components/SearchBox';
 
 const SearchBoxElement = ({ toggled = false, componentState, getProfessionals }) => {
-  // const { loading, professionals, services, location } = componentState;
+  const { loading: { professionals: loadingProfessionals }, professionals } = componentState;
   useEffect(()=>{
     // Startup Component
     getProfessionals();
@@ -18,8 +18,8 @@ const SearchBoxElement = ({ toggled = false, componentState, getProfessionals })
       <Container toggled={toggled}>
         <SelectInput
           label="Eu preciso de um(a)"
-          options={[]}
-          placeholder="Escolha um profissional"
+          options={professionals.map(e => ({ label: e.name, value: e.slug}))}
+          placeholder={loadingProfessionals ? "Carregando Profissionais..." : "Escolha um profissional"}
         />
         <SelectInput
           label="Especialista em"

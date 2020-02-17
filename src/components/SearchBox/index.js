@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { SelectInput } from 'components/SelectInput';
@@ -7,11 +7,11 @@ import { Wrapper, Container } from './styles';
 import { Creators } from 'store/ducks/components/SearchBox';
 
 const SearchBoxElement = ({ toggled = false, componentState, getProfessionals }) => {
-  const { loading, professionals, services, location } = componentState;
+  // const { loading, professionals, services, location } = componentState;
   useEffect(()=>{
     // Startup Component
     getProfessionals();
-  }, [])
+  }, [getProfessionals])
 
   return(
     <Wrapper>

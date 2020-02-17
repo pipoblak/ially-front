@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Colors from 'variables/colors';
 import Select from 'react-select';
 
 const Wrapper = styled.div`
@@ -17,7 +16,7 @@ const Label = styled.label`
 
 export const SelectInput = ({label, placeholder, options,  ...props}) => {
   const customStyles = {
-    control: (provided, state) => ({
+    control: (provided) => ({
       ...provided,
       border: 'none',
       'borderColor': 'red',
@@ -28,16 +27,16 @@ export const SelectInput = ({label, placeholder, options,  ...props}) => {
         'boxShadow': 'none'
       }
     }),
-    valueContainer: (provided, state) => ({
+    valueContainer: (provided) => ({
       ...provided,
       padding: 0
     }),
-    placeholder: (provided, state) => ({
+    placeholder: (provided) => ({
       ...provided,
       margin: 0,
       fontSize: 18
     }),
-    indicatorSeparator: (provided, state) => ({
+    indicatorSeparator: (provided) => ({
       ...provided,
       opacity: 0
     }),

@@ -3,6 +3,7 @@ import { Types } from 'store/ducks/components/SearchBox';
 
 function* getProfessionals() {
   try {
+    console.log("TEST")
     yield put({type: Types.RETURN_PROFESSIONALS });
   } catch (err) {
     console.log(err)

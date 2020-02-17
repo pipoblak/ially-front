@@ -1,8 +1,6 @@
 import React from 'react';
-import { BounceLoader } from "react-spinners";
 import { Avatar } from 'components';
-import { Wrapper, TextWrapper, Title, SubTitle, Value, Divisor, Link } from './styles';
-import colors from 'variables/colors';
+import { Wrapper, TextWrapper, Title, SubTitle, Value, Divisor } from './styles';
 import AvatarImage from 'avatar.png';
 
 const ListItem = ({ loading }) =>{

@@ -1,9 +1,7 @@
 import React from 'react';
-import { BounceLoader } from "react-spinners";
 import { useHistory } from 'react-router-dom';
 import { Avatar } from 'components';
 import { Wrapper, TextWrapper, Title, SubTitle, Value, Divisor, Link } from './styles';
-import colors from 'variables/colors';
 import AvatarImage from 'avatar.png';
 
 

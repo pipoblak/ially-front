@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Header, DefaultButton } from 'components';
+import { Header } from 'components';
 import BackgroundImage from '../../background.svg';
 import { Creators } from 'store/ducks/SpaView';
 import Item from './components/Item';

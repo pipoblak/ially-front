@@ -6,12 +6,18 @@ import { CepInput } from 'components/CepInput';
 import { Wrapper, Container } from './styles';
 import { Creators } from 'store/ducks/components/SearchBox';
 
-const SearchBoxElement = ({ toggled = false, componentState, getProfessionals }) => {
-  const { loading: { professionals: loadingProfessionals }, professionals } = componentState;
+const SearchBoxElement = ({
+  toggled = false, componentState, getProfessionals,
+  selectProfissional, getServices
+}) => {
+  const { loading: { professionals: loadingProfessionals, services: loadingServices }, professionals, selectedProfessional, services } = componentState;
   useEffect(()=>{
     // Startup Component
     getProfessionals();
   }, [getProfessionals])
+  useEffect(()=>{
+    selectedProfessional && getServices(selectedProfessional)
+  }, [selectedProfessional, getServices])
 
   return(
     <Wrapper>
@@ -19,12 +25,18 @@ const SearchBoxElement = ({ toggled = false, componentState, getProfessionals })
         <SelectInput
           label="Eu preciso de um(a)"
           options={professionals.map(e => ({ label: e.name, value: e.slug}))}
-          placeholder={loadingProfessionals ? "Carregando Profissionais..." : "Escolha um profissional"}
+          placeholder={"Escolha um profissional"}
+          onChange={ (prof) => selectProfissional(professionals.find( e => e.slug === prof.value))}
+          isLoading={loadingProfessionals}
+          loadingMessage={()=>"Carregando profissionais..."}
         />
         <SelectInput
           label="Especialista em"
-          options={[]}
+          options={services.map(e => ({ label: e.name, value: e.slug}))}
           placeholder="Escolha o serviço"
+          isLoading={loadingServices}
+          noOptionsMessage={ () => selectProfissional ? "Ainda não temos opções para este profissional" : "Primeiro, escolha um profissional"}
+          loadingMessage={()=>"Carregando serviços..."}
         />
         <CepInput
           label="Perto de"

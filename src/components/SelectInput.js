@@ -14,7 +14,7 @@ const Label = styled.label`
   margin-bottom: 16px;
 `;
 
-export const SelectInput = ({label, placeholder, options,  ...props}) => {
+export const SelectInput = ({label, placeholder, options, ...props}) => {
   const customStyles = {
     control: (provided) => ({
       ...provided,
@@ -42,12 +42,13 @@ export const SelectInput = ({label, placeholder, options,  ...props}) => {
     }),
   }
   return(
-    <Wrapper {...props}>
+    <Wrapper>
       <Label>{label}</Label>
       <Select
         options={options}
         placeholder={placeholder}
         styles={customStyles}
+        {...props}
       />
     </Wrapper>
   )

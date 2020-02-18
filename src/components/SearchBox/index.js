@@ -8,7 +8,7 @@ import { Creators } from 'store/ducks/components/SearchBox';
 
 const SearchBoxElement = ({
   toggled = false, componentState, getProfessionals,
-  selectProfissional, getServices
+  selectProfessional, getServices
 }) => {
   const { loading: { professionals: loadingProfessionals, services: loadingServices }, professionals, selectedProfessional, services } = componentState;
   useEffect(()=>{
@@ -26,7 +26,7 @@ const SearchBoxElement = ({
           label="Eu preciso de um(a)"
           options={professionals.map(e => ({ label: e.name, value: e.slug}))}
           placeholder={"Escolha um profissional"}
-          onChange={ (prof) => selectProfissional(professionals.find( e => e.slug === prof.value))}
+          onChange={ (prof) => selectProfessional(professionals.find( e => e.slug === prof.value))}
           isLoading={loadingProfessionals}
           loadingMessage={()=>"Carregando profissionais..."}
         />
@@ -35,7 +35,7 @@ const SearchBoxElement = ({
           options={services.map(e => ({ label: e.name, value: e.slug}))}
           placeholder="Escolha o serviço"
           isLoading={loadingServices}
-          noOptionsMessage={ () => selectProfissional ? "Ainda não temos opções para este profissional" : "Primeiro, escolha um profissional"}
+          noOptionsMessage={ () => selectedProfessional ? "Ainda não temos opções para este profissional" : "Primeiro, escolha um profissional"}
           loadingMessage={()=>"Carregando serviços..."}
         />
         <CepInput

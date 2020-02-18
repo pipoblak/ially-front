@@ -2,7 +2,7 @@ export const Types = {
   'SET_STATE': 'components/SearchBox/SET_STATE',
   'GET_PROFESSIONALS': 'components/SearchBox/GET_PROFESSIONALS',
   'RETURN_PROFESSIONALS': 'components/SearchBox/RETURN_PROFESSIONALS',
-  'SET_SELECTED_PROFISSIONAL': 'components/SearchBox/SET_SELECTED_PROFISSIONAL',
+  'SET_SELECTED_PROFESSIONAL': 'components/SearchBox/SET_SELECTED_PROFESSIONAL',
   'GET_SERVICES': 'components/SearchBox/GET_SERVICES',
   'RETURN_SERVICES': 'components/SearchBox/RETURN_SERVICES'
 };
@@ -23,7 +23,7 @@ export default function reducer(state = initialState, action) {
       return {...state, loading: { ...state.loading, professionals: true }, professionals: []};
     case Types.RETURN_PROFESSIONALS:
       return {...state, loading: { ...state.loading, professionals: false}, professionals: action.payload};
-    case Types.SET_SELECTED_PROFISSIONAL:
+    case Types.SET_SELECTED_PROFESSIONAL:
       return {...state, selectedProfessional: action.payload};
     case Types.GET_SERVICES:
       return {...state, loading: { ...state.loading, services: true }, services: []};
@@ -42,8 +42,8 @@ export const Creators = {
   getProfessionals: () => ({
     type: Types.GET_PROFESSIONALS
   }),
-  selectProfissional: (payload) => ({
-    type: Types.SET_SELECTED_PROFISSIONAL,
+  selectProfessional: (payload) => ({
+    type: Types.SET_SELECTED_PROFESSIONAL,
     payload
   }),
   getServices: (professional) => ({
